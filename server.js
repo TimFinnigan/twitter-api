@@ -1,6 +1,8 @@
-var request = require("request");
+const request = require("request");
+const fs = require("fs");
 const headers = require("./config.js");
-var options = {
+
+const options = {
   method: "GET",
   url: "https://api.twitter.com/1.1/statuses/home_timeline.json?count=200",
   headers: {
@@ -8,7 +10,12 @@ var options = {
     Cookie: headers.personal,
   },
 };
+
 request(options, function (error, response) {
   if (error) throw new Error(error);
-  console.log(response.body);
+
+  fs.writeFile("twitter.json", response.body, function (err) {
+    if (err) return console.log(err);
+    console.log("JSON File written");
+  });
 });
