@@ -21,6 +21,7 @@ request(options, function (error, response) {
   // Just get the data you care about
   for (let i = 0; i < data.length; i++) {
     obj[i] = {};
+    obj[i].date = data[i].created_at;
     obj[i].user = data[i].user.name;
     obj[i].text = data[i].text;
   }
