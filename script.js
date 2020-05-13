@@ -16,7 +16,7 @@ $(document).ready(function () {
         scrollY: "800px",
         scrollCollapse: true,
         paging: false,
-        // ordering: false,
+        ordering: false,
         columnDefs: [
           { type: "time", targets: 0 },
           { visible: false, targets: 0 },
