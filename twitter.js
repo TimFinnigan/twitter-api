@@ -13,6 +13,16 @@ const params = { screen_name: "nodejs", tweet_mode: "extended", count: 200 };
 
 let obj = []; // formatted data
 
+const getLocalDate = function (utc) {
+  let d = new Date(utc + " UTC");
+  //   return d.toString();
+  return d.toLocaleString("en-US", {
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true,
+  });
+};
+
 client.get("statuses/home_timeline.json", params, function (
   error,
   tweets,
@@ -24,7 +34,8 @@ client.get("statuses/home_timeline.json", params, function (
     // Just get the data you care about
     for (let i = 0; i < data.length; i++) {
       obj[i] = [];
-      obj[i].push(data[i].created_at);
+
+      obj[i].push(getLocalDate(data[i].created_at));
       obj[i].push((user = data[i].user.name));
       obj[i].push((text = data[i].full_text));
     }

@@ -278,7 +278,11 @@ $(document).ready(function () {
 
         $("#example").DataTable({
           data: data,
-          columns: [{ title: "date" }, { title: "user" }, { title: "tweet" }],
+          columns: [{ title: "Date" }, { title: "User" }, { title: "Tweet" }],
+          order: [[0, "desc"]],
+          scrollY: "800px",
+          scrollCollapse: true,
+          paging: false,
         });
       });
   });
