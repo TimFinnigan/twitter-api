@@ -2,17 +2,32 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+#headers {
+  margin-left: 15px;
+}
+
 #main-header {
   font-weight: normal;
   letter-spacing: 1px;
-  margin-left: 15px;
   font-size: 28px;
+  margin: 0px;
+  margin-bottom: 5px;
+}
+
+#sub-header {
+  font-weight: normal;
+  letter-spacing: 1px;
+  margin: 0px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  margin-left: 2px;
 }
 
 hr {
-  height: 5px;
+  height: 1px;
   border: 0px solid #d6d6d6;
   border-top-width: 1px;
+  margin: 0px;
 }
 
 #table-wrapper {
