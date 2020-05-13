@@ -11,7 +11,7 @@ const client = new Twitter({
 
 const params = { screen_name: "nodejs", tweet_mode: "extended", count: 200 };
 
-let obj = {}; // formatted data
+let obj = []; // formatted data
 
 client.get("statuses/home_timeline.json", params, function (
   error,
@@ -23,10 +23,10 @@ client.get("statuses/home_timeline.json", params, function (
 
     // Just get the data you care about
     for (let i = 0; i < data.length; i++) {
-      obj[i] = {};
-      obj[i].date = data[i].created_at;
-      obj[i].user = data[i].user.name;
-      obj[i].text = data[i].full_text;
+      obj[i] = [];
+      obj[i].push(data[i].created_at);
+      obj[i].push((user = data[i].user.name));
+      obj[i].push((text = data[i].full_text));
     }
 
     console.log(obj);

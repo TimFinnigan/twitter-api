@@ -271,16 +271,15 @@ $(document).ready(function () {
   ];
 
   $(document).ready(function () {
-    $("#example").DataTable({
-      data: dataSet,
-      columns: [
-        { title: "Name" },
-        { title: "Position" },
-        { title: "Office" },
-        { title: "Extn." },
-        { title: "Start date" },
-        { title: "Salary" },
-      ],
-    });
+    fetch("formatted_data.json")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+
+        $("#example").DataTable({
+          data: data,
+          columns: [{ title: "date" }, { title: "user" }, { title: "tweet" }],
+        });
+      });
   });
 });
