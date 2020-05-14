@@ -1,27 +1,45 @@
 $(document).ready(function () {
+  const loadTable = function (data, skipRetweets) {
+    if (skipRetweets) {
+      let newData = [];
+      for (let i = 0; i < data.length; i++) {
+        console.log(data[i][4]);
+        if (data[i][4].substring(0, 2) == "RT") continue;
+        newData.push(data[i]);
+      }
+      data = newData;
+    }
+
+    $("#tweet-table").DataTable({
+      data: data,
+      columns: [
+        { title: "Timestamp" },
+        { title: "Day" },
+        { title: "Time" },
+        { title: "User" },
+        { title: "Tweet" },
+      ],
+      order: [[0, "desc"]],
+      scrollY: "80vh",
+      scrollCollapse: true,
+      paging: false,
+      columnDefs: [
+        { type: "time", targets: 0 },
+        { visible: false, targets: 0 },
+        { orderable: false, targets: [1, 2, 3, 4] },
+      ],
+    });
+  };
+
   fetch("formatted_data.json")
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      loadTable(data);
 
-      $("#tweet-table").DataTable({
-        data: data,
-        columns: [
-          { title: "Timestamp" },
-          { title: "Day" },
-          { title: "Time" },
-          { title: "User" },
-          { title: "Tweet" },
-        ],
-        order: [[0, "desc"]],
-        scrollY: "80vh",
-        scrollCollapse: true,
-        paging: false,
-        columnDefs: [
-          { type: "time", targets: 0 },
-          { visible: false, targets: 0 },
-          { orderable: false, targets: [1, 2, 3, 4] },
-        ],
+      $("#skip-retweets").click(function () {
+        $("#tweet-table").DataTable().clear();
+        $("#tweet-table").DataTable().destroy();
+        loadTable(data, true);
       });
     });
 });
