@@ -29,7 +29,7 @@ $(document).ready(function () {
         { type: "time", targets: 0 },
         { visible: false, targets: 0 },
         { orderable: false, targets: [1, 2, 4] },
-        { orderSequence: ["desc"], targets: [5, 6] },
+        { orderSequence: ["desc", "asc", ""], targets: [3, 5, 6] },
       ],
     });
   };
