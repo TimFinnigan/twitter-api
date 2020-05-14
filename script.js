@@ -18,6 +18,8 @@ $(document).ready(function () {
         { title: "Time" },
         { title: "User" },
         { title: "Tweet" },
+        { title: "Retweets" },
+        { title: "Favorites" },
       ],
       order: [[0, "desc"]],
       scrollY: "80vh",
@@ -26,7 +28,8 @@ $(document).ready(function () {
       columnDefs: [
         { type: "time", targets: 0 },
         { visible: false, targets: 0 },
-        { orderable: false, targets: [1, 2, 3, 4] },
+        { orderable: false, targets: [1, 2, 4] },
+        { orderSequence: ["desc"], targets: [5, 6] },
       ],
     });
   };
@@ -37,7 +40,6 @@ $(document).ready(function () {
       loadTable(data);
 
       $("#skip-retweets").click(function () {
-        $("#tweet-table").DataTable().clear();
         $("#tweet-table").DataTable().destroy();
         loadTable(data, true);
       });

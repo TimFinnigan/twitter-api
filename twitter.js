@@ -40,8 +40,10 @@ client.get("statuses/home_timeline.json", params, function (
       obj[i].push(new Date(data[i].created_at));
       obj[i].push(localDate[0]);
       obj[i].push(localDate[1]);
-      obj[i].push((user = data[i].user.name));
-      obj[i].push((text = data[i].full_text));
+      obj[i].push(data[i].user.name);
+      obj[i].push(data[i].full_text);
+      obj[i].push(data[i].retweet_count);
+      obj[i].push(data[i].favorite_count);
     }
 
     console.log(obj);

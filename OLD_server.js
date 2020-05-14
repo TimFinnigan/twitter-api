@@ -24,6 +24,8 @@ request(options, function (error, response) {
     obj[i].date = data[i].created_at;
     obj[i].user = data[i].user.name;
     obj[i].text = data[i].text;
+    obj[i].retweet_count = data[i].retweet_count;
+    obj[i].favorite_count = data[i].favorite_count;
   }
 
   console.log(obj);
