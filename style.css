@@ -42,3 +42,8 @@ hr {
 #tweet-table td:nth-child(3) {
   width: 200px;
 }
+
+#twitter-buttons {
+  margin-top: 15px;
+  margin-left: 15px;
+}

@@ -14,7 +14,12 @@
       type="text/css"
       href="http://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
+
     <script src="http://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
     <script src="script.js"></script>
   </head>
@@ -24,6 +29,13 @@
       <h4 id="sub-header">The simple way to use Twitter</h4>
     </div>
     <hr />
+    <div>
+      <div id="twitter-buttons">
+        <button id="skip-retweets" type="button" class="btn btn-info">
+          Skip Retweets
+        </button>
+      </div>
+    </div>
     <div id="table-wrapper">
       <table id="tweet-table" class="display" width="100%"></table>
     </div>
