@@ -17,9 +17,10 @@ const getLocalDate = function (utc) {
   let d = new Date(utc + " UTC");
   //   return d.toString();
   return d.toLocaleString("en-US", {
-    hour: "numeric",
-    minute: "numeric",
-    hour12: true,
+    // hour: "numeric",
+    // minute: "numeric",
+    // hour12: true,
+    dateStye: "short",
   });
 };
 
@@ -33,9 +34,12 @@ client.get("statuses/home_timeline.json", params, function (
 
     // Just get the data you care about
     for (let i = 0; i < data.length; i++) {
+      let localDate = getLocalDate(data[i].created_at);
+      localDate = localDate.split(",");
       obj[i] = [];
-      obj[i].push(data[i].created_at);
-      obj[i].push(getLocalDate(data[i].created_at));
+      obj[i].push(new Date(data[i].created_at));
+      obj[i].push(localDate[0]);
+      obj[i].push(localDate[1]);
       obj[i].push((user = data[i].user.name));
       obj[i].push((text = data[i].full_text));
     }

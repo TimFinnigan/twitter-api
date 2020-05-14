@@ -34,10 +34,11 @@ hr {
   padding: 15px;
 }
 
-#tweet-table td:first-child {
+#tweet-table td:nth-child(2) {
   width: 100px;
+  text-align: center;
 }
 
-#tweet-table td:nth-child(2) {
+#tweet-table td:nth-child(3) {
   width: 200px;
 }

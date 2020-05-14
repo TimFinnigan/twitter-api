@@ -8,18 +8,19 @@ $(document).ready(function () {
         data: data,
         columns: [
           { title: "Timestamp" },
-          { title: "Date" },
+          { title: "Day" },
+          { title: "Time" },
           { title: "User" },
           { title: "Tweet" },
         ],
-        order: [[0, "desc"]],
-        scrollY: "800px",
+        order: [[0, "asc"]],
+        scrollY: "80vh",
         scrollCollapse: true,
         paging: false,
-        ordering: false,
         columnDefs: [
           { type: "time", targets: 0 },
           { visible: false, targets: 0 },
+          { orderable: false, targets: [1, 2, 3, 4] },
         ],
       });
     });
