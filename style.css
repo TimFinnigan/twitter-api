@@ -3,7 +3,7 @@
 }
 
 #headers {
-  margin-left: 15px;
+  margin-left: 45px;
 }
 
 #main-header {
@@ -11,6 +11,7 @@
   letter-spacing: 1px;
   font-size: 28px;
   margin: 0px;
+  margin-top: 30px;
   margin-bottom: 5px;
 }
 
@@ -30,8 +31,9 @@ hr {
   margin: 0px;
 }
 
-#table-wrapper {
-  padding: 15px;
+#content-wrapper {
+  padding: 55px;
+  padding-top: 0px;
 }
 
 #tweet-table td:nth-child(2) {
@@ -45,5 +47,4 @@ hr {
 
 #twitter-buttons {
   margin-top: 15px;
-  margin-left: 15px;
 }
