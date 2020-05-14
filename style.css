@@ -38,7 +38,7 @@ hr {
 
 #tweet-table td:nth-child(2) {
   width: 100px;
-  text-align: center;
+  text-align: left;
 }
 
 #tweet-table td:nth-child(3) {
