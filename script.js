@@ -13,7 +13,7 @@ $(document).ready(function () {
           { title: "User" },
           { title: "Tweet" },
         ],
-        order: [[0, "asc"]],
+        order: [[0, "desc"]],
         scrollY: "80vh",
         scrollCollapse: true,
         paging: false,
