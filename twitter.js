@@ -31,6 +31,16 @@ const formatText = function (text) {
   return text;
 };
 
+const getUser = function (user) {
+  return (
+    "<a class='user-link' target='_blank' href='https://twitter.com/" +
+    user.screen_name +
+    "'>" +
+    user.name +
+    "</a>"
+  );
+};
+
 client.get("statuses/home_timeline.json", params, function (
   error,
   tweets,
@@ -47,7 +57,7 @@ client.get("statuses/home_timeline.json", params, function (
       obj[i].push(new Date(data[i].created_at));
       obj[i].push(localDate[0]);
       obj[i].push(localDate[1]);
-      obj[i].push(data[i].user.name);
+      obj[i].push(getUser(data[i].user));
       obj[i].push(formatText(data[i].full_text));
       obj[i].push(data[i].retweet_count);
       obj[i].push(data[i].favorite_count);
