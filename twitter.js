@@ -53,7 +53,7 @@ client.get("statuses/home_timeline.json", params, function (
       obj[i].push(data[i].favorite_count);
     }
 
-    console.log(obj);
+    // console.log(obj);
 
     fs.writeFile("formatted_data.json", JSON.stringify(obj), function (err) {
       if (err) return console.log(err);

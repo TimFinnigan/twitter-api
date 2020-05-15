@@ -39,7 +39,7 @@ $(document).ready(function () {
         $(this)
           .html()
           .replace(
-            /(?:(https?\:\/\/[^\s]+))/m,
+            /((?:https?)[^\s]+)/gi,
             '<a target="_blank" href="$1">$1</a>'
           )
       );
