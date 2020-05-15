@@ -4,7 +4,7 @@ $(document).ready(function () {
       let newData = [];
       for (let i = 0; i < data.length; i++) {
         console.log(data[i][4]);
-        if (data[i][4].substring(0, 2) == "RT") continue;
+        if (data[i][4].includes("RT ")) continue;
         newData.push(data[i]);
       }
       data = newData;
