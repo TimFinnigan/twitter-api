@@ -33,6 +33,17 @@ $(document).ready(function () {
         { orderSequence: ["asc", "desc", ""], targets: [3] },
       ],
     });
+
+    $("*[linkify]").each(function () {
+      $(this).html(
+        $(this)
+          .html()
+          .replace(
+            /(?:(https?\:\/\/[^\s]+))/m,
+            '<a target="_blank" href="$1">$1</a>'
+          )
+      );
+    });
   };
 
   fetch("formatted_data.json")
