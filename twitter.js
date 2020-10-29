@@ -11,8 +11,6 @@ const client = new Twitter({
 
 const params = { screen_name: 'nodejs', tweet_mode: 'extended', count: 200 };
 
-let obj = []; // formatted data
-
 const getLocalDate = function (utc) {
 	let d = new Date(utc + ' UTC');
 	//   return d.toString();
@@ -41,6 +39,8 @@ const getUser = function (user) {
 	);
 };
 
+let allData = [];
+
 client.get('statuses/home_timeline.json', params, function (
 	error,
 	tweets,
@@ -54,26 +54,27 @@ client.get('statuses/home_timeline.json', params, function (
 		for (let i = 0; i < data.length; i++) {
 			let localDate = getLocalDate(data[i].created_at);
 			localDate = localDate.split(',');
-			obj[i] = [];
-			obj[i].push(new Date(data[i].created_at));
-			obj[i].push(localDate[0]);
-			obj[i].push(localDate[1]);
-			obj[i].push(getUser(data[i].user));
-			obj[i].push(formatText(data[i].full_text));
-			obj[i].push(data[i].retweet_count);
-			obj[i].push(data[i].favorite_count);
+			let obj = {};
+			obj.timestamp = new Date(data[i].created_at);
+			obj.day = localDate[0];
+			obj.time = localDate[1];
+			obj.user = data[i].user.name;
+			obj.text = formatText(data[i].full_text);
+			obj.retweets = data[i].retweet_count;
+			obj.favorites = data[i].favorite_count;
+			allData.push(obj);
 		}
 
-		fs.writeFile('formatted_data.json', JSON.stringify(obj), function (
+		fs.writeFile('formatted_data.json', JSON.stringify(allData), function (
 			err
 		) {
 			if (err) return console.log(err);
 			console.log('JSON File written');
 		});
 
-		fs.writeFile('all_data.json', JSON.stringify(tweets), function (err) {
-			if (err) return console.log(err);
-			console.log('JSON File written');
-		});
+		// fs.writeFile('all_data.json', JSON.stringify(tweets), function (err) {
+		// 	if (err) return console.log(err);
+		// 	console.log('JSON File written');
+		// });
 	}
 });
