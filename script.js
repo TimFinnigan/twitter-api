@@ -3,8 +3,8 @@ $(document).ready(function () {
 		if (skipRetweets) {
 			let newData = [];
 			for (let i = 0; i < data.length; i++) {
-				console.log(data[i][4]);
-				if (data[i][4].includes('RT ')) continue;
+				console.log(data[i]);
+				if (data[i].text.includes('RT ')) continue;
 				newData.push(data[i]);
 			}
 			data = newData;
