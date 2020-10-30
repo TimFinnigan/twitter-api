@@ -22,7 +22,7 @@ $(document).ready(function () {
 				{ title: 'Favorites', data: 'favorites' },
 			],
 			order: [[0, 'desc']],
-			scrollY: '80vh',
+			scrollY: '70vh',
 			scrollCollapse: true,
 			paging: false,
 			columnDefs: [
